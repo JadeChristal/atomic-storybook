@@ -1,0 +1,16 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import Todo from './Todo';
+
+<Meta title="MDX/Todo" component={Todo} />
+
+export const Template = (args) => <Todo {...args} />;
+
+# Todo - Teste de story em mdx
+
+- Utilizar extensão de **MDX** para highlight do componente
+- Roda da mesma forma que o componente de javascript
+
+<Canvas>
+  <Story name="Teste">{Template.bind({})}</Story>
+</Canvas>
