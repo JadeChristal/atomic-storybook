@@ -46,6 +46,7 @@ const Todo = () => {
   return (
     <TodoSection>
       <TodoTaskInput
+        data-testid="todo-textfield"
         aria-label="Todo Input Field"
         placeholder="What needs to be done?"
         onKeyDown={(event) =>
@@ -61,11 +62,13 @@ const Todo = () => {
                 handleCheckBoxChange(task.id, enteredTask, setEnteredTask)
               }
               key={task.id}
+              data-testid="todo-list-item"
             >
               <TodoInputCheckbox
                 type="checkbox"
                 aria-label="Done checkbox"
                 aria-describedby="todo-task"
+                data-testid="todo-complete-task"
               />
               <TodoListParagraph
                 id="todo-task"
@@ -81,6 +84,7 @@ const Todo = () => {
                   removeClickHandler(task.id, enteredTask, setEnteredTask)
                 }
                 aria-describedby="todo-task"
+                data-testid="todo-remove-task"
               ></TodoDestroyButton>
             </NewTodoTask>
           );
