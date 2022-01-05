@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState } from "react";
 
 import {
   TodoSection,
@@ -8,9 +8,9 @@ import {
   TodoListParagraph,
   TodoInputCheckbox,
   TodoDestroyButton,
-} from './styles';
+} from "./styles";
 
-import { generateUniqueID } from './functions/generateId';
+import { generateUniqueID } from "./functions/generateId";
 
 const Todo = () => {
   const [enteredTask, setEnteredTask] = useState([]);
@@ -30,7 +30,7 @@ const Todo = () => {
   };
 
   const handleTaskInput = (event, enteredTask, setEnteredTask) => {
-    if (event.key === 'Enter' && event.target.value.length > 0) {
+    if (event.key === "Enter" && event.target.value.length > 0) {
       setEnteredTask([
         {
           id: generateUniqueID(enteredTask),
@@ -39,7 +39,7 @@ const Todo = () => {
         },
         ...enteredTask,
       ]);
-      event.target.value = '';
+      event.target.value = "";
     }
   };
 
@@ -54,7 +54,7 @@ const Todo = () => {
         }
         autoFocus
       />
-      <TodoMainSectionUl>
+      <TodoMainSectionUl data-testid="todo-list-item-container">
         {enteredTask.map((task) => {
           return (
             <NewTodoTask
