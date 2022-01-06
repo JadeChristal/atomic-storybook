@@ -32,11 +32,13 @@ Cypress.Commands.add("createTask", (task) => {
 });
 
 Cypress.Commands.add("checkLength", (el, length) => {
-  cy.get(el).children().should("have.length", length);
+  cy.get(el ? el : 'ul[data-testid="todo-list-item-container"]')
+    .children()
+    .should("have.length", length);
 });
 
-Cypress.Commands.add("checksLastText", (el, text) => {
-  cy.get(el).last().should("have.text", text);
+Cypress.Commands.add("checksLastText", (text) => {
+  cy.get('li[data-testid="todo-list-item"]').last().should("have.text", text);
 });
 
 Cypress.Commands.add("clicksFirst", (el) => {
@@ -44,7 +46,9 @@ Cypress.Commands.add("clicksFirst", (el) => {
 });
 
 Cypress.Commands.add("checksFirstChecked", (el) => {
-  cy.get(el).first().should("be.checked");
+  cy.get('input[data-testid="todo-complete-task"]')
+    .first()
+    .should("be.checked");
 });
 
 Cypress.Commands.add("checksFocusedAttr", (val) => {
