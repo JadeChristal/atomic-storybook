@@ -59,7 +59,7 @@ export const TodoTaskInput = styled.input`
   font-family: inherit;
   line-height: 1.4em;
   outline: none;
-  color: inherit;
+  color: #333333;
   padding: 6px;
   border: 1px solid #999;
   box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
@@ -67,10 +67,10 @@ export const TodoTaskInput = styled.input`
   font-smoothing: antialiased;
   padding: 16px 16px 16px 60px;
   border: none;
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(248, 248, 248, 0.5);
   box-shadow: none;
   &: focus {
-    outline: 4px solid black;
+    outline: 4px solid #c2850c;
   }
 `;
 
@@ -118,10 +118,10 @@ export const TodoListParagraph = styled.p`
   -webkit-transition: color 0.4s;
   transition: color 0.4s;
   &: focus {
-    outline: 4px solid black;
+    outline: 4px solid #c2850c;
   }
   text-decoration: ${(props) => (props.checked ? "line-through" : "none")};
-  color: ${(props) => (props.checked ? "#FF0000" : "black")};
+  color: ${(props) => (props.checked ? "#168821" : "#333333")};
 `;
 
 export const TodoInputCheckbox = styled.input`
@@ -144,12 +144,12 @@ export const TodoInputCheckbox = styled.input`
   }
   &: checked:after{
     color: #85ada7;
-    text-shadow: 0 1px 0 #669991;
+    text-shadow: 0 1px 0 #168821;
     bottom: 1px;
     position: relative;
   }
   &: focus {
-    outline: 4px solid black;
+    outline: 4px solid #c2850c;
   }
 `;
 
@@ -161,7 +161,6 @@ export const TodoDestroyButton = styled.button`
   font-size: 1.375rem;
   vertical-align: baseline;
   font-family: inherit;
-  color: inherit;
   appearance: none;
 
   position: absolute;
@@ -172,16 +171,16 @@ export const TodoDestroyButton = styled.button`
   height: 40px;
   margin: auto 0;
   font-size: 22px;
-  color: #a88a8a;
+  color: #0c326f;
   transition: all 0.2s;
   &: hover {
-    text-shadow: 0 0 1px #000, 0 0 10px rgba(199, 107, 107, 0.8);
+    text-shadow: 0 0 1px #000, 0 0 10px rgba(114, 146, 199, 0.8);
     transform: scale(1.3);
   }
   &: after {
     content: "✖";
   }
   &: focus {
-    outline: 4px solid black;
+    outline: 4px solid #c2850c;
   }
 `;
