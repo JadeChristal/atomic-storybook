@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState } from "react";
 
 import {
   TodoSection,
@@ -8,9 +8,9 @@ import {
   TodoListParagraph,
   TodoInputCheckbox,
   TodoDestroyButton,
-} from './styles';
+} from "./styles";
 
-import { generateUniqueID } from './functions/generateId';
+import { generateUniqueID } from "./functions/generateId";
 
 const Todo = () => {
   const [enteredTask, setEnteredTask] = useState([]);
@@ -30,7 +30,7 @@ const Todo = () => {
   };
 
   const handleTaskInput = (event, enteredTask, setEnteredTask) => {
-    if (event.key === 'Enter' && event.target.value.length > 0) {
+    if (event.key === "Enter" && event.target.value.length > 0) {
       setEnteredTask([
         {
           id: generateUniqueID(enteredTask),
@@ -39,13 +39,14 @@ const Todo = () => {
         },
         ...enteredTask,
       ]);
-      event.target.value = '';
+      event.target.value = "";
     }
   };
 
   return (
     <TodoSection>
       <TodoTaskInput
+        data-testid="todo-textfield"
         aria-label="Todo Input Field"
         placeholder="What needs to be done?"
         onKeyDown={(event) =>
@@ -53,7 +54,7 @@ const Todo = () => {
         }
         autoFocus
       />
-      <TodoMainSectionUl>
+      <TodoMainSectionUl data-testid="todo-list-item-container">
         {enteredTask.map((task) => {
           return (
             <NewTodoTask
@@ -61,11 +62,13 @@ const Todo = () => {
                 handleCheckBoxChange(task.id, enteredTask, setEnteredTask)
               }
               key={task.id}
+              data-testid="todo-list-item"
             >
               <TodoInputCheckbox
                 type="checkbox"
                 aria-label="Done checkbox"
                 aria-describedby="todo-task"
+                data-testid="todo-complete-task"
               />
               <TodoListParagraph
                 id="todo-task"
@@ -81,6 +84,7 @@ const Todo = () => {
                   removeClickHandler(task.id, enteredTask, setEnteredTask)
                 }
                 aria-describedby="todo-task"
+                data-testid="todo-remove-task"
               ></TodoDestroyButton>
             </NewTodoTask>
           );
