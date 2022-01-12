@@ -100,6 +100,9 @@ export const TodoClearButton = styled.button`
 `;
 
 export const NewTodoTask = styled.li`
+  display: flex;
+  align-items: center;
+  align-content: center;
   position: relative;
   font-size: 24px;
   border-bottom: 1px dotted #ccc;
@@ -125,10 +128,10 @@ export const TodoListParagraph = styled.p`
 `;
 
 export const TodoInputCheckbox = styled.input`
+  height: fit-content;
   outline: none;
   text-align: center;
   width: 40px;
-  height: auto;
   position: absolute;
   top: 0;
   bottom: 0;
