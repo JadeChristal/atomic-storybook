@@ -67,14 +67,13 @@ const Todo = () => {
               <TodoInputCheckbox
                 type="checkbox"
                 aria-label="Done checkbox"
-                aria-describedby="todo-task"
+                aria-describedby={task.id}
                 data-testid="todo-complete-task"
               />
               <TodoListParagraph
-                id="todo-task"
-                aria-label="Todo Task Description"
+                id={task.id}
                 checked={task.checked}
-                data-id={task.id}
+                data-testid={task.id}
               >
                 {task.value}
               </TodoListParagraph>
@@ -83,7 +82,7 @@ const Todo = () => {
                 onClick={() =>
                   removeClickHandler(task.id, enteredTask, setEnteredTask)
                 }
-                aria-describedby="todo-task"
+                aria-describedby={task.id}
                 data-testid="todo-remove-task"
               ></TodoDestroyButton>
             </NewTodoTask>

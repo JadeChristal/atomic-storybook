@@ -102,7 +102,6 @@ export const TodoClearButton = styled.button`
 export const NewTodoTask = styled.li`
   display: flex;
   align-items: center;
-  align-content: center;
   position: relative;
   font-size: 24px;
   border-bottom: 1px dotted #ccc;
@@ -124,7 +123,8 @@ export const TodoListParagraph = styled.p`
     outline: 4px solid #c2850c;
   }
   text-decoration: ${(props) => (props.checked ? "line-through" : "none")};
-  color: ${(props) => (props.checked ? "#168821" : "#333333")};
+  // color: ${(props) => (props.checked ? "#168821" : "#333333")};
+  color: ${(props) => (props.checked ? "#F3F3F3" : "#333333")};
 `;
 
 export const TodoInputCheckbox = styled.input`
